@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticketing/shared/theme.dart';
+import 'package:ticketing/ui/pages/signup_page.dart';
 
 class GetStarted extends StatelessWidget {
   const GetStarted({super.key});
@@ -17,7 +18,7 @@ class GetStarted extends StatelessWidget {
             ),
             gradient: LinearGradient(colors: [
               Colors.black.withOpacity(1),
-              Colors.black.withOpacity(0.0),
+              Colors.black.withOpacity(0.2),
             ], begin: Alignment.bottomCenter, end: Alignment.center),
           )),
           Center(
@@ -26,14 +27,14 @@ class GetStarted extends StatelessWidget {
               children: [
                 Text(
                   'Fly a Bird',
-                  style: kWhiteTextStyle.copyWith(
+                  style: whiteTextStyle.copyWith(
                       fontSize: 32, fontWeight: semiBold),
                 ),
                 const SizedBox(height: 10),
                 Text(
                   'Explore new world with us and let \n yourself get an amazing experiences',
                   style:
-                      kWhiteTextStyle.copyWith(fontSize: 16, fontWeight: light),
+                      whiteTextStyle.copyWith(fontSize: 16, fontWeight: light),
                   textAlign: TextAlign.center,
                 ),
                 Container(
@@ -42,14 +43,24 @@ class GetStarted extends StatelessWidget {
                   width: 220,
                   child: TextButton(
                     onPressed: () {
-                      
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SignUp(),
+                        ),
+                      );
                     },
                     style: TextButton.styleFrom(
                       backgroundColor: kPrimaryColor,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(17)
-                      )
-                    ), child: Text('Get Started', style: kWhiteTextStyle.copyWith(fontSize: 17, fontWeight: medium),),
+                        borderRadius: BorderRadius.circular(17),
+                      ),
+                    ),
+                    child: Text(
+                      'Get Started',
+                      style: whiteTextStyle.copyWith(
+                          fontSize: 17, fontWeight: light),
+                    ),
                   ),
                 )
               ],

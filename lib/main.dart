@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:ticketing/ui/pages/getstarted_page.dart';
+import 'package:ticketing/ui/pages/signup_page.dart';
 import 'package:ticketing/ui/pages/splash_page.dart';
 
 void main() {
@@ -16,9 +18,13 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashPage(),
+      routes: {
+        '/' : (context) => const SplashPage(),
+        '/get-started' :(context) => const GetStarted(),
+        '/sign-up' :(context) => const SignUp(),
+      },
     );
   }
 }
