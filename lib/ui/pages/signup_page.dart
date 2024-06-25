@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ticketing/shared/theme.dart';
+import 'package:ticketing/ui/widgets/custom_button_widget.dart';
+import 'package:ticketing/ui/widgets/custom_field_form.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -16,180 +18,30 @@ class SignUp extends StatelessWidget {
 
     Widget inputSection() {
       Widget emailInput() {
-        return Container(
-          margin: const EdgeInsets.only(bottom: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Email Address',
-                style: blackTextStyle.copyWith(fontWeight: normal),
-              ),
-              const SizedBox(height: 6),
-              TextFormField(
-                cursorColor: kBlackColor,
-                decoration: InputDecoration(
-                  hintText: 'Input your email address',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(defaultRadius),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(defaultRadius),
-                    borderSide: BorderSide(
-                      color: kPrimaryColor,
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
+        return CustomFieldForm(label: 'Email Address', placeholder: 'Input Your Email Address',
         );
       }
 
       Widget fullName() {
-        return Container(
-          margin: const EdgeInsets.only(bottom: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Fullname',
-                style: blackTextStyle.copyWith(fontWeight: normal),
-              ),
-              const SizedBox(height: 6),
-              TextFormField(
-                cursorColor: kBlackColor,
-                decoration: InputDecoration(
-                  hintText: 'Input your name',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(defaultRadius),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(defaultRadius),
-                    borderSide: BorderSide(
-                      color: kPrimaryColor,
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
-        );
+        return CustomFieldForm(label: 'Fullname', placeholder: 'Input Your Fullname',);
       }
 
       Widget password() {
-        return Container(
-          margin: const EdgeInsets.only(bottom: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Password',
-                style: blackTextStyle.copyWith(fontWeight: normal),
-              ),
-              const SizedBox(height: 6),
-              TextFormField(
-                obscureText: true,
-                cursorColor: kBlackColor,
-                decoration: InputDecoration(
-                  hintText: 'Input your Password',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(defaultRadius),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(defaultRadius),
-                    borderSide: BorderSide(
-                      color: kPrimaryColor,
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
-        );
+        return CustomFieldForm(label: 'Password', placeholder: 'Input password', obscureText: true );
       }
 
       Widget confirmPassword() {
-        return Container(
-          margin: const EdgeInsets.only(bottom: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Confirm Password',
-                style: blackTextStyle.copyWith(fontWeight: normal),
-              ),
-              const SizedBox(height: 6),
-              TextFormField(
-                obscureText: true,
-                cursorColor: kBlackColor,
-                decoration: InputDecoration(
-                  hintText: 'Input your Password',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(defaultRadius),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(defaultRadius),
-                    borderSide: BorderSide(
-                      color: kPrimaryColor,
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
-        );
+        return CustomFieldForm(label: 'Confirm Password', placeholder: 'Input Confirm Password', obscureText: true,);
       }
 
       Widget hobby() {
-        return Container(
-          margin: const EdgeInsets.only(bottom: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Hobby',
-                style: blackTextStyle.copyWith(fontWeight: normal),
-              ),
-              const SizedBox(height: 6),
-              TextFormField(
-                obscureText: true,
-                cursorColor: kBlackColor,
-                decoration: InputDecoration(
-                  hintText: 'Input your Password',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(defaultRadius),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(defaultRadius),
-                    borderSide: BorderSide(
-                      color: kPrimaryColor,
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
-        );
+        return CustomFieldForm(label: 'Hobby', placeholder: 'Input Your Hobby',);
       }
 
-      Widget button() {
-        return Container(
-          height: 55,
-          width: double.infinity,
-          child: TextButton(
-            onPressed: () {},
-            style: TextButton.styleFrom(
-              backgroundColor: kPrimaryColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(defaultRadius),
-              ),
-            ),
-            child: Text('Get Started', style: whiteTextStyle.copyWith(
-              fontSize: 18, fontWeight: medium
-            ),),
-          ),
-        );
+      Widget submitButton() {
+        return CustomButton(titleButton: 'Get Started', onPressed: () {
+          Navigator.pushNamed(context, '/bonus-page');
+        },);
       }
 
       return Container(
@@ -207,13 +59,13 @@ class SignUp extends StatelessWidget {
             password(),
             confirmPassword(),
             hobby(),
-            button()
+            submitButton()
           ],
         ),
       );
     }
 
-    Widget termncondition() {
+    Widget tnc() {
       return Center(
         child: Container(
           margin: const EdgeInsets.only(top: 50, bottom: 73),
@@ -224,7 +76,10 @@ class SignUp extends StatelessWidget {
             },
             child: Text(
               'Terms and Condition',
-              style: greyTextStyle.copyWith(fontSize: 16, fontWeight: light,decoration: TextDecoration.underline), 
+              style: greyTextStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: light,
+                  decoration: TextDecoration.underline),
             ),
           ),
         ),
@@ -236,7 +91,7 @@ class SignUp extends StatelessWidget {
         body: SafeArea(
           child: ListView(
             padding: const EdgeInsets.symmetric(horizontal: defaultMargin),
-            children: [title(), inputSection(), termncondition()],
+            children: [title(), inputSection(), tnc()],
           ),
         ));
   }
