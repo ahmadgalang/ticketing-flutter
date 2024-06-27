@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ticketing/shared/theme.dart';
+import 'package:ticketing/ui/pages/home_page.dart';
 import 'package:ticketing/ui/widgets/custom_bottom_navigation_item.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class MainPage extends StatelessWidget {
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: kBackgroundColor,
       body: SafeArea(
         child: Stack(
-          children: [customBottomNavigation()],
+          children: [const HomePage(), customBottomNavigation(), ],
         ),
       ),
     );

@@ -18,28 +18,28 @@ class SignUp extends StatelessWidget {
 
     Widget inputSection() {
       Widget emailInput() {
-        return CustomFieldForm(label: 'Email Address', placeholder: 'Input Your Email Address',
+        return const CustomFieldForm(label: 'Email Address', placeholder: 'Input Your Email Address',
         );
       }
 
       Widget fullName() {
-        return CustomFieldForm(label: 'Fullname', placeholder: 'Input Your Fullname',);
+        return const CustomFieldForm(label: 'Fullname', placeholder: 'Input Your Fullname',);
       }
 
       Widget password() {
-        return CustomFieldForm(label: 'Password', placeholder: 'Input password', obscureText: true );
+        return const CustomFieldForm(label: 'Password', placeholder: 'Input password', obscureText: true );
       }
 
       Widget confirmPassword() {
-        return CustomFieldForm(label: 'Confirm Password', placeholder: 'Input Confirm Password', obscureText: true,);
+        return const CustomFieldForm(label: 'Confirm Password', placeholder: 'Input Confirm Password', obscureText: true,);
       }
 
       Widget hobby() {
-        return CustomFieldForm(label: 'Hobby', placeholder: 'Input Your Hobby',);
+        return const CustomFieldForm(label: 'Hobby', placeholder: 'Input Your Hobby',);
       }
 
       Widget submitButton() {
-        return CustomButton(titleButton: 'Get Started', onPressed: () {
+        return CustomButton(titleButton: 'Get Started', margin: const EdgeInsets.only(top: 20),onPressed: () {
           Navigator.pushNamed(context, '/bonus-page');
         },);
       }

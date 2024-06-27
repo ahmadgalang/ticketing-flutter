@@ -6,13 +6,14 @@ class CustomButton extends StatelessWidget {
   final String titleButton;
   final Function() onPressed;
   final double width;
+  final EdgeInsets margin;
 
-  const CustomButton({super.key, required this.titleButton, required this.onPressed, this.width = double.infinity});
+  const CustomButton({super.key, required this.titleButton, required this.onPressed, this.width = double.infinity, this.margin = EdgeInsets.zero});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 50),
+      margin: margin,
       height: 55,
       width: width,
       child: TextButton(
@@ -26,7 +27,7 @@ class CustomButton extends StatelessWidget {
         ),
         child: Text(
           titleButton,
-          style: whiteTextStyle.copyWith(fontSize: 17, fontWeight: light),
+          style: whiteTextStyle.copyWith(fontSize: 17, fontWeight: medium),
         ),
       ),
     );

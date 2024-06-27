@@ -7,7 +7,7 @@ class CustomFieldForm extends StatefulWidget {
   final String placeholder;
   final bool obscureText;
 
- CustomFieldForm({
+ const CustomFieldForm({
     super.key,
     required this.label,
     required this.placeholder,

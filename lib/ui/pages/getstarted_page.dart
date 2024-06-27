@@ -36,16 +36,17 @@ class GetStarted extends StatelessWidget {
                   const SizedBox(height: 10),
                   Text(
                     'Explore new world with us and let \n yourself get an amazing experiences',
-                    style:
-                        whiteTextStyle.copyWith(fontSize: 16, fontWeight: light),
+                    style: whiteTextStyle.copyWith(
+                        fontSize: 16, fontWeight: light),
                     textAlign: TextAlign.center,
                   ),
                   CustomButton(
-                    titleButton: 'Get Started',
+                    titleButton: 'Fly a Bird',
+                    width: 220,
+                    margin: const EdgeInsets.only(top: 50),
                     onPressed: () {
                       Navigator.pushNamed(context, '/sign-up');
                     },
-                    width: 220,
                   )
                 ],
               ),

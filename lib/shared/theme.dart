@@ -26,5 +26,5 @@ TextStyle redTextStyle = GoogleFonts.poppins(color: kRedColor);
 TextStyle greyTextStyle = GoogleFonts.poppins(color: kGreyColor);
 TextStyle inactiveTextStyle = GoogleFonts.poppins(color: kInactiveColor);
 
-const double defaultMargin = 20;
+const double defaultMargin = 24;
 const double defaultRadius = 20;
