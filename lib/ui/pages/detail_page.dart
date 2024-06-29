@@ -80,23 +80,14 @@ class DetailPage extends StatelessWidget {
                 ],
               ),
             ),
+            Container(
+              margin: EdgeInsets.only(right: defaultMargin, left: defaultMargin),
+              decoration: BoxDecoration(
+                color: kWhiteColor
+              ),
+            )
           ],
         ),
-      ),
-    );
-  }
-
-  Widget detailDescription() {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: Container(
-        margin: EdgeInsets.only(
-            right: defaultMargin, left: defaultMargin, top: 205),
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-        width: double.infinity,
-        height: 446,
-        decoration: BoxDecoration(color: kRedColor),
-        child: Column(),
       ),
     );
   }
@@ -107,7 +98,7 @@ class DetailPage extends StatelessWidget {
       backgroundColor: kBackgroundColor,
       body: SafeArea(
         child: Stack(
-          children: [backgroundImage(), detailDescription()],
+          children: [backgroundImage()],
         ),
       ),
     );
