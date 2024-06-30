@@ -34,11 +34,14 @@ class ListDestinationCard extends StatelessWidget {
             height: 70,
             width: 70,
             decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(imageUrl),
-                  fit: BoxFit.cover,
-                ),
-                borderRadius: const BorderRadius.all(Radius.circular(18))),
+              image: DecorationImage(
+                image: AssetImage(imageUrl),
+                fit: BoxFit.cover,
+              ),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(18),
+              ),
+            ),
           ),
           Expanded(
             child: Column(
