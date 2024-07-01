@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticketing/shared/theme.dart';
+import 'package:ticketing/ui/widgets/custom_button_widget.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key});
@@ -95,20 +96,181 @@ class DetailPage extends StatelessWidget {
         Container(
           margin: const EdgeInsets.only(
               left: defaultMargin, right: defaultMargin, top: 30),
-          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+          padding:
+              const EdgeInsets.only(top: 30, bottom: 30, left: 20, right: 40),
           width: double.infinity,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(defaultRadius),
               color: kWhiteColor),
           child: SingleChildScrollView(
-            child: const Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('About'),
-                Text('Beradaaa'),
+                Container(
+                  margin: const EdgeInsets.only(bottom: 10),
+                  child: Text(
+                    'About',
+                    style: blackTextStyle.copyWith(
+                        fontSize: 16, fontWeight: semiBold),
+                  ),
+                ),
+                Container(
+                    margin: const EdgeInsets.only(bottom: 30),
+                    child: Text(
+                      'Berada di jalur jalan provinsi yang menghubungkan Denpasar Singaraja serta letaknya yang dekat dengan Kebun Raya Eka Karya menjadikan tempat Bali.',
+                      style: blackTextStyle.copyWith(),
+                    )),
+                Container(
+                  margin: const EdgeInsets.only(bottom: 10),
+                  child: Text(
+                    'Photos',
+                    style: blackTextStyle.copyWith(
+                        fontSize: 16, fontWeight: semiBold),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(bottom: 30),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 70,
+                          height: 70,
+                          margin: const EdgeInsets.only(right: 10),
+                          decoration: BoxDecoration(
+                              color: kRedColor,
+                              image: const DecorationImage(
+                                  image:
+                                      AssetImage('assets/images/image-one.png'),
+                                  fit: BoxFit.cover),
+                              borderRadius: BorderRadius.circular(17)),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(bottom: 10),
+                  child: Text(
+                    'Interest',
+                    style: blackTextStyle.copyWith(
+                        fontSize: 16, fontWeight: semiBold),
+                  ),
+                ),
+                Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(bottom: 10),
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(right: 10),
+                                height: 16,
+                                width: 16,
+                                decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'assets/icons/fi_check-circle.png'),
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                'Interest',
+                                style: blackTextStyle.copyWith(fontSize: 14),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(bottom: 10),
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(right: 10),
+                                height: 16,
+                                width: 16,
+                                decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'assets/icons/fi_check-circle.png'),
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                'Interest',
+                                style: blackTextStyle.copyWith(fontSize: 14),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.only(right: 10),
+                              height: 16,
+                              width: 16,
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                      'assets/icons/fi_check-circle.png'),
+                                ),
+                              ),
+                            ),
+                            Text(
+                              'Interest',
+                              style: blackTextStyle.copyWith(fontSize: 14),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.only(right: 10),
+                              height: 16,
+                              width: 16,
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                      'assets/icons/fi_check-circle.png'),
+                                ),
+                              ),
+                            ),
+                            Text(
+                              'Interest',
+                              style: blackTextStyle.copyWith(fontSize: 14),
+                            ),
+                          ],
+                        ),
+                      ],
+                    )
+                  ],
+                )
               ],
             ),
           ),
+        )
+      ],
+    );
+  }
+
+  Widget footer() {
+    return Row(
+      children: [
+        const Column(
+          children: [Text('IDR 50.000.000'), Text('IDR 50.000.000')],
+        ),
+        CustomButton(
+          titleButton: 'Book Now',
+          onPressed: () {},
         )
       ],
     );
@@ -120,7 +282,9 @@ class DetailPage extends StatelessWidget {
       backgroundColor: kBackgroundColor,
       body: SafeArea(
         child: Stack(
-          children: [backgroundImage(), content()],
+          children: [
+            backgroundImage(), content(), footer(),
+          ],
         ),
       ),
     );
