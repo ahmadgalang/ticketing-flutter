@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ticketing/shared/theme.dart';
 import 'package:ticketing/ui/widgets/custom_button_widget.dart';
+import 'package:ticketing/ui/widgets/custom_interest_content.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key});
@@ -46,7 +47,7 @@ class DetailPage extends StatelessWidget {
         ),
         Container(
           margin: const EdgeInsets.only(
-              left: defaultMargin, right: defaultMargin, top: 256),
+              left: defaultMargin, right: defaultMargin, top: 240),
           width: double.infinity,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -116,9 +117,11 @@ class DetailPage extends StatelessWidget {
                 ),
                 Container(
                     margin: const EdgeInsets.only(bottom: 30),
-                    child: Text(
-                      'Berada di jalur jalan provinsi yang menghubungkan Denpasar Singaraja serta letaknya yang dekat dengan Kebun Raya Eka Karya menjadikan tempat Bali.',
-                      style: blackTextStyle.copyWith(),
+                    child: Expanded(
+                      child: Text(
+                        'Berada di jalur jalan provinsi yang menghubungkan Denpasar Singaraja serta letaknya yang dekat dengan Kebun Raya Eka Karya menjadikan tempat Bali.',
+                        style: blackTextStyle.copyWith(height: 2),
+                      ),
                     )),
                 Container(
                   margin: const EdgeInsets.only(bottom: 10),
@@ -160,118 +163,44 @@ class DetailPage extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.only(bottom: 10),
-                          child: Row(
-                            children: [
-                              Container(
-                                margin: const EdgeInsets.only(right: 10),
-                                height: 16,
-                                width: 16,
-                                decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                        'assets/icons/fi_check-circle.png'),
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                'Interest',
-                                style: blackTextStyle.copyWith(fontSize: 14),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(bottom: 10),
-                          child: Row(
-                            children: [
-                              Container(
-                                margin: const EdgeInsets.only(right: 10),
-                                height: 16,
-                                width: 16,
-                                decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                        'assets/icons/fi_check-circle.png'),
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                'Interest',
-                                style: blackTextStyle.copyWith(fontSize: 14),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.only(right: 10),
-                              height: 16,
-                              width: 16,
-                              decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage(
-                                      'assets/icons/fi_check-circle.png'),
-                                ),
-                              ),
-                            ),
-                            Text(
-                              'Interest',
-                              style: blackTextStyle.copyWith(fontSize: 14),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.only(right: 10),
-                              height: 16,
-                              width: 16,
-                              decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage(
-                                      'assets/icons/fi_check-circle.png'),
-                                ),
-                              ),
-                            ),
-                            Text(
-                              'Interest',
-                              style: blackTextStyle.copyWith(fontSize: 14),
-                            ),
-                          ],
-                        ),
-                      ],
-                    )
+                    CustomInterest(),
+                    CustomInterest(),
+                    CustomInterest(),
                   ],
                 )
               ],
             ),
           ),
-        )
-      ],
-    );
-  }
-
-  Widget footer() {
-    return Row(
-      children: [
-        const Column(
-          children: [Text('IDR 50.000.000'), Text('IDR 50.000.000')],
         ),
-        CustomButton(
-          titleButton: 'Book Now',
-          onPressed: () {},
-        )
+        Container(
+          margin: EdgeInsets.symmetric(
+              horizontal: defaultMargin, vertical: defaultMargin),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'IDR 15.000.000',
+                    style: blackTextStyle.copyWith(
+                        fontSize: 18, fontWeight: medium),
+                  ),
+                  Text(
+                    'Per Orang',
+                    style:
+                        greyTextStyle.copyWith(fontSize: 14, fontWeight: light),
+                  )
+                ],
+              ),
+              CustomButton(
+                width: 170,
+                titleButton: 'Book Now',
+                onPressed: () {},
+              )
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -280,11 +209,10 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBackgroundColor,
-      body: SafeArea(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child: Stack(
-          children: [
-            backgroundImage(), content(), footer(),
-          ],
+          children: [backgroundImage(), content()],
         ),
       ),
     );
