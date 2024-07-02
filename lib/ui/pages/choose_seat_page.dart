@@ -73,7 +73,7 @@ class ChooseSeat extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       border: Border.all(width: 1),
-                      image: DecorationImage(
+                      image: const DecorationImage(
                         image: AssetImage('assets/icons/ic-unavailable.png'),
                       ),
                     ),
@@ -98,14 +98,14 @@ class ChooseSeat extends StatelessWidget {
 
     Widget selectSeat() {
       return Container(
-        margin: EdgeInsets.only(top: 30),
-        padding: EdgeInsets.symmetric(horizontal: 22, vertical: 30),
+        margin: const EdgeInsets.only(top: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 30),
         width: double.infinity,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(17), color: kWhiteColor),
         child: Column(
           children: [
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text('A'),
@@ -116,7 +116,7 @@ class ChooseSeat extends StatelessWidget {
               ],
             ),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 16),
+              margin: const EdgeInsets.symmetric(vertical: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -136,7 +136,7 @@ class ChooseSeat extends StatelessWidget {
                         borderRadius: BorderRadius.circular(17),
                         border: Border.all(width: 3, color: kPrimaryColor)),
                   ),
-                  Container(
+                  SizedBox(
                     width: 48,
                     height: 48,
                     child: Center(
