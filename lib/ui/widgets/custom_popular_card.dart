@@ -19,11 +19,7 @@ class PopularCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const DetailPage(),
-            ));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailPage()));
       },
       child: Container(
         padding: const EdgeInsets.all(10),
@@ -84,8 +80,7 @@ class PopularCard extends StatelessWidget {
               margin: const EdgeInsets.only(left: 10),
               child: Text(
                 title,
-                style:
-                    blackTextStyle.copyWith(fontWeight: medium, fontSize: 18),
+                style: blackTextStyle.copyWith(fontWeight: medium, fontSize: 18),
               ),
             ),
             const SizedBox(height: 5),

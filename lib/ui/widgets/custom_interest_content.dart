@@ -27,8 +27,8 @@ class CustomInterest extends StatelessWidget {
               style: blackTextStyle.copyWith(fontSize: 14),
             ),
           ),
-          SizedBox(
-            width: 50,
+          const SizedBox(
+            width: 20,
           ),
           Container(
             margin: const EdgeInsets.only(right: 10),

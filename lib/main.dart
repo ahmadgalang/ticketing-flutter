@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:ticketing/ui/pages/bonus_page.dart';
+import 'package:ticketing/ui/pages/choose_seat_page.dart';
 import 'package:ticketing/ui/pages/getstarted_page.dart';
 import 'package:ticketing/ui/pages/main_page.dart';
 import 'package:ticketing/ui/pages/signup_page.dart';
@@ -27,7 +28,8 @@ class _MyAppState extends State<MyApp> {
         '/get-started' :(context) => const GetStarted(),
         '/sign-up' :(context) => const SignUp(),
         '/bonus-page' :(context) => const BonusPage(),
-        '/main' : (context) => const MainPage()
+        '/main' : (context) => const MainPage(),
+        '/choose-seat' : (context) => const ChooseSeat()
         
       },
     );
