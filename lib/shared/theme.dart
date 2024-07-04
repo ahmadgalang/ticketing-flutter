@@ -10,6 +10,9 @@ Color kRedColor = const Color(0xffEB70A5);
 Color kGreyColor = const Color(0xff9698A9);
 Color kInactiveColor = const Color(0xffDBD7EC);
 Color kTransparent = const Color.fromARGB(255, 255, 255, 255);
+Color kAvailable = const Color(0xffE0D9FF);
+Color kSelected = const Color(0xff5C40CC);
+Color kUnvailable = const Color(0xffEBECF1);
 
 FontWeight bold = FontWeight.w700;
 FontWeight semiBold = FontWeight.w600;

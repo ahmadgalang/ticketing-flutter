@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ticketing/shared/theme.dart';
+import 'package:ticketing/ui/widgets/custom_button_widget.dart';
+import 'package:ticketing/ui/widgets/custom_choose_seat.dart';
 
 class ChooseSeat extends StatelessWidget {
   const ChooseSeat({super.key});
@@ -82,7 +84,7 @@ class ChooseSeat extends StatelessWidget {
                     width: 5,
                   ),
                   Text(
-                    'Unselected',
+                    'Unavailable',
                     style: blackTextStyle.copyWith(
                       fontWeight: semiBold,
                       fontSize: 14,
@@ -105,67 +107,151 @@ class ChooseSeat extends StatelessWidget {
             borderRadius: BorderRadius.circular(17), color: kWhiteColor),
         child: Column(
           children: [
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text('A'),
-                Text('B'),
-                Text(''),
-                Text('C'),
-                Text('D'),
-              ],
+            Container(
+              margin: EdgeInsets.only(bottom: 16),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text('A'),
+                  Text('B'),
+                  Text(''),
+                  Text('C'),
+                  Text('D'),
+                ],
+              ),
             ),
             Container(
-              margin: const EdgeInsets.symmetric(vertical: 16),
+              margin: EdgeInsets.only(bottom: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Container(
-                    width: 48,
-                    height: 48,
-                    decoration: BoxDecoration(
-                      color: kBackgroundColor,
-                      borderRadius: BorderRadius.circular(17),
-                    ),
-                  ),
-                  Container(
-                    width: 48,
-                    height: 48,
-                    decoration: BoxDecoration(
-                        color: kPrimaryColor.withOpacity(0.5),
-                        borderRadius: BorderRadius.circular(17),
-                        border: Border.all(width: 3, color: kPrimaryColor)),
-                  ),
+                  const CustomChooseSeat(status: 0),
+                  const CustomChooseSeat(status: 1),
                   SizedBox(
-                    width: 48,
-                    height: 48,
-                    child: Center(
-                      child: Text(
-                        '1',
-                        style: blackTextStyle.copyWith(fontSize: 16),
-                      ),
+                    child: Text(
+                      '1',
+                      style: greyTextStyle.copyWith(fontSize: 16),
                     ),
                   ),
-                  Container(
-                    width: 48,
-                    height: 48,
-                    decoration: BoxDecoration(
-                        color: kPrimaryColor.withOpacity(0.5),
-                        borderRadius: BorderRadius.circular(17),
-                        border: Border.all(width: 3, color: kPrimaryColor)),
-                  ),
-                  Container(
-                    width: 48,
-                    height: 48,
-                    decoration: BoxDecoration(
-                        color: kPrimaryColor.withOpacity(0.5),
-                        borderRadius: BorderRadius.circular(17),
-                        border: Border.all(width: 3, color: kPrimaryColor)),
-                  ),
+                  const CustomChooseSeat(status: 3),
+                  const CustomChooseSeat(status: 1),
                 ],
               ),
-            )
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  const CustomChooseSeat(status: 0),
+                  const CustomChooseSeat(status: 0),
+                  SizedBox(
+                    child: Text(
+                      '2',
+                      style: greyTextStyle.copyWith(fontSize: 16),
+                    ),
+                  ),
+                  const CustomChooseSeat(status: 2),
+                  const CustomChooseSeat(status: 2),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  const CustomChooseSeat(status: 0),
+                  const CustomChooseSeat(status: 0),
+                  SizedBox(
+                    child: Text(
+                      '3',
+                      style: greyTextStyle.copyWith(fontSize: 16),
+                    ),
+                  ),
+                  const CustomChooseSeat(status: 2),
+                  const CustomChooseSeat(status: 2),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  const CustomChooseSeat(status: 0),
+                  const CustomChooseSeat(status: 0),
+                  SizedBox(
+                    child: Text(
+                      '4',
+                      style: greyTextStyle.copyWith(fontSize: 16),
+                    ),
+                  ),
+                  const CustomChooseSeat(status: 2),
+                  const CustomChooseSeat(status: 2),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  const CustomChooseSeat(status: 0),
+                  const CustomChooseSeat(status: 0),
+                  SizedBox(
+                    child: Text(
+                      '5',
+                      style: greyTextStyle.copyWith(fontSize: 16),
+                    ),
+                  ),
+                  const CustomChooseSeat(status: 2),
+                  const CustomChooseSeat(status: 2),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 16, left: defaultMargin, right: defaultMargin),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Your Seat',
+                      style: greyTextStyle.copyWith(
+                          fontSize: 14, fontWeight: medium)),
+                  Container(
+                    child: Row(
+                      children: [const Text('A3'), const Text('A3')],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 16, left: defaultMargin, right: defaultMargin),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Total',
+                      style: greyTextStyle.copyWith(
+                          fontSize: 14, fontWeight: medium)),
+                  Text('IDR 540.000.000',
+                      style: primaryTextStyle.copyWith(
+                          fontSize: 16, fontWeight: bold)),
+                ],
+              ),
+            ),
           ],
+        ),
+      );
+    }
+
+    Widget button() {
+      return Container(
+        margin: EdgeInsets.symmetric(vertical: 30),
+        child: CustomButton(
+          titleButton: 'Continue to Checkout',
+          width: double.infinity,
+          onPressed: () {},
         ),
       );
     }
@@ -177,7 +263,7 @@ class ChooseSeat extends StatelessWidget {
                 margin:
                     const EdgeInsets.symmetric(horizontal: 24, vertical: 30),
                 child: ListView(
-                  children: [title(), seatStatus(), selectSeat()],
+                  children: [title(), seatStatus(), selectSeat(), button()],
                 ))));
   }
 }
