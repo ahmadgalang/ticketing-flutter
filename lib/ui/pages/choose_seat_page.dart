@@ -74,7 +74,7 @@ class ChooseSeat extends StatelessWidget {
                     height: 16,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
-                      border: Border.all(width: 1),
+                      border: Border.all(width: 0.5),
                       image: const DecorationImage(
                         image: AssetImage('assets/icons/ic-unavailable.png'),
                       ),
@@ -108,7 +108,7 @@ class ChooseSeat extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(bottom: 16),
+              margin: const EdgeInsets.only(bottom: 16),
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -121,7 +121,7 @@ class ChooseSeat extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 16),
+              margin: const EdgeInsets.only(bottom: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -139,7 +139,7 @@ class ChooseSeat extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 16),
+              margin: const EdgeInsets.only(bottom: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -157,7 +157,7 @@ class ChooseSeat extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 16),
+              margin: const EdgeInsets.only(bottom: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -175,7 +175,7 @@ class ChooseSeat extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 16),
+              margin: const EdgeInsets.only(bottom: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -193,7 +193,7 @@ class ChooseSeat extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 16),
+              margin: const EdgeInsets.only(bottom: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -211,7 +211,7 @@ class ChooseSeat extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 16, left: defaultMargin, right: defaultMargin),
+              margin: const EdgeInsets.only(bottom: 16, top: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -219,15 +219,15 @@ class ChooseSeat extends StatelessWidget {
                       style: greyTextStyle.copyWith(
                           fontSize: 14, fontWeight: medium)),
                   Container(
-                    child: Row(
-                      children: [const Text('A3'), const Text('A3')],
+                    child: const Row(
+                      children: [Text('A3'), Text('A3')],
                     ),
                   )
                 ],
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 16, left: defaultMargin, right: defaultMargin),
+              margin: const EdgeInsets.only(bottom: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -247,11 +247,13 @@ class ChooseSeat extends StatelessWidget {
 
     Widget button() {
       return Container(
-        margin: EdgeInsets.symmetric(vertical: 30),
+        margin: const EdgeInsets.symmetric(vertical: 30),
         child: CustomButton(
           titleButton: 'Continue to Checkout',
           width: double.infinity,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/checkout');
+          },
         ),
       );
     }
