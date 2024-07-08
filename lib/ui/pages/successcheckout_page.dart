@@ -41,7 +41,7 @@ class SuccessCheckout extends StatelessWidget {
               style: greyTextStyle.copyWith(fontSize: 16, fontWeight: light),
             ),
             Container(
-              margin: EdgeInsets.only(top: 50),
+              margin: const EdgeInsets.only(top: 50),
               child: CustomButton(
                 width: 220,
                 titleButton: 'My Bookings',

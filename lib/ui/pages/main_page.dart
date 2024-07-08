@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ticketing/cubit/page_cubit.dart';
 import 'package:ticketing/shared/theme.dart';
 import 'package:ticketing/ui/pages/home_page.dart';
+import 'package:ticketing/ui/pages/setting_page.dart';
+import 'package:ticketing/ui/pages/transaction_page.dart';
+import 'package:ticketing/ui/pages/wallet_page.dart';
 import 'package:ticketing/ui/widgets/custom_bottom_navigation_item.dart';
 
 class MainPage extends StatelessWidget {
@@ -8,8 +13,19 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget buildContent() {
-      return HomePage();
+    Widget buildContent(currentIndex) {
+      switch (currentIndex) {
+        case 0:
+          return HomePage();
+        case 1:
+          return Transaction();
+        case 2:
+          return Wallet();
+        case 3:
+          return Setting();
+        default:
+          return HomePage();
+      }
     }
 
     Widget customBottomNavigation() {
@@ -29,30 +45,40 @@ class MainPage extends StatelessWidget {
             children: [
               CustomBottomNavigationItem(
                 imageUrl: 'assets/icons/ic-nav-globe.png',
-                isSelected: true,
+                index: 0,
               ),
               CustomBottomNavigationItem(
-                  imageUrl: 'assets/icons/ic-nav-book.png'),
+                imageUrl: 'assets/icons/ic-nav-book.png',
+                index: 1,
+              ),
               CustomBottomNavigationItem(
-                  imageUrl: 'assets/icons/ic-nav-creditcard.png'),
+                imageUrl: 'assets/icons/ic-nav-creditcard.png',
+                index: 2,
+              ),
               CustomBottomNavigationItem(
-                  imageUrl: 'assets/icons/ic-nav-settings.png'),
+                imageUrl: 'assets/icons/ic-nav-settings.png',
+                index: 3,
+              ),
             ],
           ),
         ),
       );
     }
 
-    return Scaffold(
-      backgroundColor: kBackgroundColor,
-      body: SafeArea(
-        child: Stack(
-          children: [
-            buildContent(),
-            customBottomNavigation(),
-          ],
-        ),
-      ),
+    return BlocBuilder<PageCubit, int>(
+      builder: (context, currentIndex) {
+        return Scaffold(
+          backgroundColor: kBackgroundColor,
+          body: SafeArea(
+            child: Stack(
+              children: [
+                buildContent(currentIndex),
+                customBottomNavigation(),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

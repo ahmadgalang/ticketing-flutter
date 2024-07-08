@@ -23,7 +23,7 @@ class CustomCheckoutContent extends StatelessWidget {
         children: [
           // ignore: avoid_unnecessary_containers
           Container(
-            margin: EdgeInsets.only(right: 5),
+            margin: const EdgeInsets.only(right: 5),
             width: 16,
             height: 16,
             decoration: const BoxDecoration(
