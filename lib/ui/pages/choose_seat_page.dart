@@ -218,10 +218,8 @@ class ChooseSeat extends StatelessWidget {
                   Text('Your Seat',
                       style: greyTextStyle.copyWith(
                           fontSize: 14, fontWeight: medium)),
-                  Container(
-                    child: const Row(
-                      children: [Text('A3'), Text('A3')],
-                    ),
+                  const Row(
+                    children: [Text('A3'), Text('A3')],
                   )
                 ],
               ),
@@ -259,13 +257,15 @@ class ChooseSeat extends StatelessWidget {
     }
 
     return Scaffold(
-        backgroundColor: kBackgroundColor,
-        body: SafeArea(
-            child: Container(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 30),
-                child: ListView(
-                  children: [title(), seatStatus(), selectSeat(), button()],
-                ))));
+      backgroundColor: kBackgroundColor,
+      body: SafeArea(
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 30),
+          child: ListView(
+            children: [title(), seatStatus(), selectSeat(), button()],
+          ),
+        ),
+      ),
+    );
   }
 }

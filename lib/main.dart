@@ -1,5 +1,6 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ticketing/cubit/page_cubit.dart';
 import 'package:ticketing/ui/pages/bonus_page.dart';
 import 'package:ticketing/ui/pages/checkout_page.dart';
 import 'package:ticketing/ui/pages/choose_seat_page.dart';
@@ -7,6 +8,7 @@ import 'package:ticketing/ui/pages/getstarted_page.dart';
 import 'package:ticketing/ui/pages/main_page.dart';
 import 'package:ticketing/ui/pages/signup_page.dart';
 import 'package:ticketing/ui/pages/splash_page.dart';
+import 'package:ticketing/ui/pages/successcheckout_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,18 +24,21 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      routes: {
-        '/' : (context) => const SplashPage(),
-        '/get-started' :(context) => const GetStarted(),
-        '/sign-up' :(context) => const SignUp(),
-        '/bonus-page' :(context) => const BonusPage(),
-        '/main' : (context) => const MainPage(),
-        '/choose-seat' : (context) => const ChooseSeat(),
-        '/checkout' : (context) => const CheckOut()
-        
-      },
+    return MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => PageCubit())],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        routes: {
+          '/': (context) => const SplashPage(),
+          '/get-started': (context) => const GetStarted(),
+          '/sign-up': (context) => const SignUp(),
+          '/bonus-page': (context) => const BonusPage(),
+          '/main': (context) => const MainPage(),
+          '/choose-seat': (context) => const ChooseSeat(),
+          '/checkout': (context) => const CheckOut(),
+          '/success-checkout': (context) => const SuccessCheckout()
+        },
+      ),
     );
   }
 }

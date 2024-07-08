@@ -26,16 +26,36 @@ class CheckOut extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  'Jakarta',
-                  style:
-                      greyTextStyle.copyWith(fontSize: 16, fontWeight: normal),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Jakarta',
+                      style: blackTextStyle.copyWith(
+                          fontSize: 16, fontWeight: semiBold),
+                    ),
+                    Text(
+                      'Jakarta',
+                      style: greyTextStyle.copyWith(
+                          fontSize: 14, fontWeight: light),
+                    ),
+                  ],
                 ),
-                Text(
-                  'Singapore',
-                  style:
-                      greyTextStyle.copyWith(fontSize: 16, fontWeight: normal),
-                )
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      'Jakarta',
+                      style: blackTextStyle.copyWith(
+                          fontSize: 16, fontWeight: semiBold),
+                    ),
+                    Text(
+                      'Jakarta',
+                      style: greyTextStyle.copyWith(
+                          fontSize: 14, fontWeight: light),
+                    ),
+                  ],
+                ),
               ],
             )
           ],
@@ -126,14 +146,41 @@ class CheckOut extends StatelessWidget {
                     blackTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
               ),
             ),
-            const CustomCheckoutContent(),
-            const CustomCheckoutContent(),
-            const CustomCheckoutContent(),
-            const CustomCheckoutContent(),
-            const CustomCheckoutContent(),
-            const CustomCheckoutContent(),
-            const CustomCheckoutContent(),
-            const CustomCheckoutContent(),
+            CustomCheckoutContent(
+              itemTitle: 'Traveler',
+              itemValue: '2 person',
+              textColor: kBlackColor,
+            ),
+            CustomCheckoutContent(
+              itemTitle: 'Seat',
+              itemValue: 'A3, B3',
+              textColor: kBlackColor,
+            ),
+            CustomCheckoutContent(
+              itemTitle: 'Insurance',
+              itemValue: 'YES',
+              textColor: kGreenColor,
+            ),
+            CustomCheckoutContent(
+              itemTitle: 'Refundable',
+              itemValue: 'NO',
+              textColor: kRedColor,
+            ),
+            CustomCheckoutContent(
+              itemTitle: 'VAT',
+              itemValue: '45%',
+              textColor: kBlackColor,
+            ),
+            CustomCheckoutContent(
+              itemTitle: 'Price',
+              itemValue: 'IDR 8.500.690',
+              textColor: kBlackColor,
+            ),
+            CustomCheckoutContent(
+              itemTitle: 'Grand Total',
+              itemValue: 'IDR 12.000.000',
+              textColor: kPrimaryColor,
+            ),
           ],
         ),
       );
@@ -141,78 +188,116 @@ class CheckOut extends StatelessWidget {
 
     Widget paymentDetails() {
       return Container(
-        margin: EdgeInsets.only(top: 30, bottom: 30),
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+        margin: const EdgeInsets.only(top: 30, bottom: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
         decoration: BoxDecoration(
             color: kWhiteColor,
             borderRadius: BorderRadius.circular(defaultRadius)),
         width: double.infinity,
-        child: Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: 100,
-              height: 70,
-              margin: EdgeInsets.only(right: 15),
-              decoration: BoxDecoration(
-                  color: kPrimaryColor,
-                  borderRadius: BorderRadius.circular(17),
-                  boxShadow: [
-                    BoxShadow(
+            Text(
+              'Payment Details',
+              style:
+                  blackTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: [
+                Container(
+                  width: 100,
+                  height: 70,
+                  margin: const EdgeInsets.only(right: 15),
+                  decoration: BoxDecoration(
                       color: kPrimaryColor,
-                      spreadRadius: 1,
-                      blurRadius: 2,
-                      offset: Offset(0, 2),
-                    )
-                  ]),
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                      borderRadius: BorderRadius.circular(17),
+                      boxShadow: [
+                        BoxShadow(
+                          color: kPrimaryColor,
+                          spreadRadius: 1,
+                          blurRadius: 2,
+                          offset: const Offset(0, 2),
+                        )
+                      ]),
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(right: 5),
+                          width: 24,
+                          height: 24,
+                          decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage('assets/icons/logo.png'))),
+                        ),
+                        Text(
+                          'Pay',
+                          style: whiteTextStyle.copyWith(
+                              fontSize: 16, fontWeight: normal),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      margin: EdgeInsets.only(right: 5),
-                      width: 24,
-                      height: 24,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/icons/logo.png'))),
+                    Text(
+                      'IDR 10.000.000',
+                      style: blackTextStyle.copyWith(
+                          fontSize: 18, fontWeight: bold),
                     ),
                     Text(
-                      'Pay',
-                      style: whiteTextStyle.copyWith(
-                          fontSize: 16, fontWeight: normal),
+                      'Current Balance',
+                      style: greyTextStyle.copyWith(
+                          fontSize: 16, fontWeight: light),
                     )
                   ],
-                ),
-              ),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'IDR 10.000.000',
-                  style:
-                      blackTextStyle.copyWith(fontSize: 18, fontWeight: bold),
-                ),
-                Text(
-                  'Current Balance',
-                  style:
-                      greyTextStyle.copyWith(fontSize: 16, fontWeight: light),
                 )
               ],
-            )
+            ),
           ],
         ),
       );
     }
 
-    Widget payNowButton(){
+    Widget payNowButton() {
       return Container(
-        margin: EdgeInsets.only(bottom: 30),
-        child: CustomButton(titleButton: 'Pay Now', onPressed: () {
-          
-        },),
+        margin: const EdgeInsets.only(bottom: 30),
+        child: CustomButton(
+          titleButton: 'Pay Now',
+          onPressed: () {
+            Navigator.pushNamed(context, '/success-checkout');
+          },
+        ),
       );
     }
+
+    Widget tnc() {
+      return Center(
+        child: Container(
+          margin: const EdgeInsets.only(top: 20, bottom: 20),
+          child: GestureDetector(
+            onTap: () {
+              // ignore: avoid_print
+              print('object');
+            },
+            child: Text(
+              'Terms and Condition',
+              style: greyTextStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: light,
+                  decoration: TextDecoration.underline),
+            ),
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: Container(
@@ -220,7 +305,13 @@ class CheckOut extends StatelessWidget {
         child: ListView(
           children: [
             Column(
-              children: [route(), contentCheckout(), paymentDetails(), payNowButton()],
+              children: [
+                route(),
+                contentCheckout(),
+                paymentDetails(),
+                payNowButton(),
+                tnc()
+              ],
             ),
           ],
         ),

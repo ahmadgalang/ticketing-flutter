@@ -4,7 +4,15 @@ import 'package:flutter/widgets.dart';
 import 'package:ticketing/shared/theme.dart';
 
 class CustomCheckoutContent extends StatelessWidget {
-  const CustomCheckoutContent({super.key});
+  final Color textColor;
+  final itemTitle;
+  final itemValue;
+
+  const CustomCheckoutContent(
+      {super.key,
+      required this.itemTitle,
+      required this.itemValue,
+      required this.textColor});
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +34,14 @@ class CustomCheckoutContent extends StatelessWidget {
           ),
           Expanded(
             child: Text(
-              'aaaa',
-              style:
-                  blackTextStyle.copyWith(fontSize: 14, fontWeight: normal),
+              itemTitle,
+              style: blackTextStyle.copyWith(fontSize: 14, fontWeight: normal),
             ),
           ),
           Text(
-            'saaa',
-            style: blackTextStyle.copyWith(fontSize: 14, fontWeight: semiBold),
+            itemValue,
+            style: blackTextStyle.copyWith(
+                fontSize: 14, fontWeight: semiBold, color: textColor),
           ),
         ],
       ),

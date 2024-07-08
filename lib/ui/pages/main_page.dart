@@ -8,6 +8,10 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget buildContent() {
+      return HomePage();
+    }
+
     Widget customBottomNavigation() {
       return Align(
         alignment: Alignment.bottomCenter,
@@ -24,7 +28,9 @@ class MainPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               CustomBottomNavigationItem(
-                  imageUrl: 'assets/icons/ic-nav-globe.png' , isSelected: true,),
+                imageUrl: 'assets/icons/ic-nav-globe.png',
+                isSelected: true,
+              ),
               CustomBottomNavigationItem(
                   imageUrl: 'assets/icons/ic-nav-book.png'),
               CustomBottomNavigationItem(
@@ -41,7 +47,10 @@ class MainPage extends StatelessWidget {
       backgroundColor: kBackgroundColor,
       body: SafeArea(
         child: Stack(
-          children: [const HomePage(), customBottomNavigation(), ],
+          children: [
+            buildContent(),
+            customBottomNavigation(),
+          ],
         ),
       ),
     );
