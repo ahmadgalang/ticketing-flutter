@@ -30,12 +30,12 @@ class CheckOut extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Jakarta',
+                      'Jakarta Dufan',
                       style: blackTextStyle.copyWith(
                           fontSize: 16, fontWeight: semiBold),
                     ),
                     Text(
-                      'Jakarta',
+                      'Jakarta Dufan',
                       style: greyTextStyle.copyWith(
                           fontSize: 14, fontWeight: light),
                     ),
@@ -45,12 +45,12 @@ class CheckOut extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      'Jakarta',
+                      'Jakarta Dufan',
                       style: blackTextStyle.copyWith(
                           fontSize: 16, fontWeight: semiBold),
                     ),
                     Text(
-                      'Jakarta',
+                      'Jakarta Dufan',
                       style: greyTextStyle.copyWith(
                           fontSize: 14, fontWeight: light),
                     ),
@@ -147,13 +147,13 @@ class CheckOut extends StatelessWidget {
               ),
             ),
             CustomCheckoutContent(
-              itemTitle: 'Traveler',
-              itemValue: '2 person',
+              itemTitle: 'Traveller',
+              itemValue: '2 Person',
               textColor: kBlackColor,
             ),
             CustomCheckoutContent(
               itemTitle: 'Seat',
-              itemValue: 'A3, B3',
+              itemValue: 'A3, A2',
               textColor: kBlackColor,
             ),
             CustomCheckoutContent(
@@ -178,7 +178,7 @@ class CheckOut extends StatelessWidget {
             ),
             CustomCheckoutContent(
               itemTitle: 'Grand Total',
-              itemValue: 'IDR 12.000.000',
+              itemValue: 'IDR 8.500.690',
               textColor: kPrimaryColor,
             ),
           ],
@@ -194,72 +194,59 @@ class CheckOut extends StatelessWidget {
             color: kWhiteColor,
             borderRadius: BorderRadius.circular(defaultRadius)),
         width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Row(
           children: [
-            Text(
-              'Payment Details',
-              style:
-                  blackTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              children: [
-                Container(
-                  width: 100,
-                  height: 70,
-                  margin: const EdgeInsets.only(right: 15),
-                  decoration: BoxDecoration(
+            Container(
+              width: 100,
+              height: 70,
+              margin: const EdgeInsets.only(right: 15),
+              decoration: BoxDecoration(
+                  color: kPrimaryColor,
+                  borderRadius: BorderRadius.circular(17),
+                  boxShadow: [
+                    BoxShadow(
                       color: kPrimaryColor,
-                      borderRadius: BorderRadius.circular(17),
-                      boxShadow: [
-                        BoxShadow(
-                          color: kPrimaryColor,
-                          spreadRadius: 1,
-                          blurRadius: 2,
-                          offset: const Offset(0, 2),
-                        )
-                      ]),
-                  child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.only(right: 5),
-                          width: 24,
-                          height: 24,
-                          decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage('assets/icons/logo.png'))),
-                        ),
-                        Text(
-                          'Pay',
-                          style: whiteTextStyle.copyWith(
-                              fontSize: 16, fontWeight: normal),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                      spreadRadius: 1,
+                      blurRadius: 2,
+                      offset: const Offset(0, 2),
+                    )
+                  ]),
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'IDR 10.000.000',
-                      style: blackTextStyle.copyWith(
-                          fontSize: 18, fontWeight: bold),
+                    Container(
+                      margin: const EdgeInsets.only(right: 5),
+                      width: 24,
+                      height: 24,
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assets/icons/logo.png'))),
                     ),
                     Text(
-                      'Current Balance',
-                      style: greyTextStyle.copyWith(
-                          fontSize: 16, fontWeight: light),
+                      'Pay',
+                      style: whiteTextStyle.copyWith(
+                          fontSize: 16, fontWeight: normal),
                     )
                   ],
+                ),
+              ),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'IDR 10.000.000',
+                  style:
+                      blackTextStyle.copyWith(fontSize: 18, fontWeight: bold),
+                ),
+                Text(
+                  'Current Balance',
+                  style:
+                      greyTextStyle.copyWith(fontSize: 16, fontWeight: light),
                 )
               ],
-            ),
+            )
           ],
         ),
       );
@@ -277,27 +264,6 @@ class CheckOut extends StatelessWidget {
       );
     }
 
-    Widget tnc() {
-      return Center(
-        child: Container(
-          margin: const EdgeInsets.only(top: 20, bottom: 20),
-          child: GestureDetector(
-            onTap: () {
-              // ignore: avoid_print
-              print('object');
-            },
-            child: Text(
-              'Terms and Condition',
-              style: greyTextStyle.copyWith(
-                  fontSize: 16,
-                  fontWeight: light,
-                  decoration: TextDecoration.underline),
-            ),
-          ),
-        ),
-      );
-    }
-
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: Container(
@@ -309,8 +275,7 @@ class CheckOut extends StatelessWidget {
                 route(),
                 contentCheckout(),
                 paymentDetails(),
-                payNowButton(),
-                tnc()
+                payNowButton()
               ],
             ),
           ],
