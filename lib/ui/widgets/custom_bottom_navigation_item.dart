@@ -12,30 +12,32 @@ class CustomBottomNavigationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        context.read<PageCubit>().setPage(index);
-      },
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SizedBox(),
-          Image.asset(imageUrl,
-              width: 24,
-              height: 24,
-              color: context.read<PageCubit>().state == index
-                  ? kPrimaryColor
-                  : kGreyColor),
-          Container(
-            height: 2,
-            width: 30,
-            decoration: BoxDecoration(
+    return BlocBuilder<PageCubit, int>(builder: (context, state) {
+      return GestureDetector(
+        onTap: () {
+          context.read<PageCubit>().setPage(index);
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const SizedBox(),
+            Image.asset(imageUrl,
+                width: 24,
+                height: 24,
                 color: context.read<PageCubit>().state == index
                     ? kPrimaryColor
-                    : kTransparent),
-          )
-        ],
-      ),
-    );
+                    : kGreyColor),
+            Container(
+              height: 2,
+              width: 30,
+              decoration: BoxDecoration(
+                  color: context.read<PageCubit>().state == index
+                      ? kPrimaryColor
+                      : kTransparent),
+            )
+          ],
+        ),
+      );
+    });
   }
 }
