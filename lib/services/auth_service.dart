@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:ticketing/models/user_model.dart';
+import 'package:ticketing/services/user_service.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -22,10 +23,12 @@ class AuthService {
           hobby: hobby,
           balance: 2800000);
 
+      await UserService().setUser(user);
+
       return user;
     } catch (e) {
       // Menangani kesalahan dengan memberikan informasi kesalahan
-      throw Exception('Failed to sign up: $e');
+      rethrow;
     }
   }
 }
