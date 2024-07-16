@@ -30,10 +30,6 @@ class SignUp extends StatelessWidget {
         return const CustomFieldForm(label: 'Password', placeholder: 'Input password', obscureText: true );
       }
 
-      Widget confirmPassword() {
-        return const CustomFieldForm(label: 'Confirm Password', placeholder: 'Input Confirm Password', obscureText: true,);
-      }
-
       Widget hobby() {
         return const CustomFieldForm(label: 'Hobby', placeholder: 'Input Your Hobby',);
       }
@@ -57,7 +53,6 @@ class SignUp extends StatelessWidget {
             fullName(),
             emailInput(),
             password(),
-            confirmPassword(),
             hobby(),
             submitButton()
           ],
