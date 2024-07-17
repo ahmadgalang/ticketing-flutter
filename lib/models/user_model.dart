@@ -9,7 +9,7 @@ class UserModel extends Equatable {
   final String hobby;
   final int balance;
 
-  UserModel(
+  const UserModel(
       {
       required this.id,
       required this.name,

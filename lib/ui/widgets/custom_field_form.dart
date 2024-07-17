@@ -6,12 +6,14 @@ class CustomFieldForm extends StatefulWidget {
   final String label;
   final String placeholder;
   final bool obscureText;
+  final TextEditingController controller;
 
  const CustomFieldForm({
     super.key,
     required this.label,
     required this.placeholder,
     this.obscureText = false,
+    required this.controller
   });
 
   @override
@@ -34,6 +36,7 @@ class _CustomFieldFormState extends State<CustomFieldForm> {
           TextFormField(
             cursorColor: kBlackColor,
             obscureText: widget.obscureText,
+            controller: widget.controller,
             decoration: InputDecoration(
               hintText: widget.placeholder,
               border: OutlineInputBorder(
