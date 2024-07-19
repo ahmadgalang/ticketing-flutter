@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "152407953418",
+    "project_id": "ticketing-flutter-one",
+    "storage_bucket": "ticketing-flutter-one.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152407953418:android:7f5d9202387384b3efcff3",
+        "android_client_info": {
+          "package_name": "com.ahmadgalang.ticketing"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZwWUVEzj69sDj3DxouskzWZSd4BKMK9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152407953418:android:a6f37ed62b0127e8efcff3",
+        "android_client_info": {
+          "package_name": "com.example.ticketing"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZwWUVEzj69sDj3DxouskzWZSd4BKMK9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

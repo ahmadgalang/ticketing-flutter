@@ -16,15 +16,15 @@ class MainPage extends StatelessWidget {
     Widget buildContent(currentIndex) {
       switch (currentIndex) {
         case 0:
-          return HomePage();
+          return const HomePage();
         case 1:
-          return Transaction();
+          return const Transaction();
         case 2:
-          return Wallet();
+          return const Wallet();
         case 3:
-          return Setting();
+          return const Setting();
         default:
-          return HomePage();
+          return const HomePage();
       }
     }
 
