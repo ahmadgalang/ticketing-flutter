@@ -8,10 +8,10 @@ import 'package:ticketing/ui/widgets/custom_field_form.dart';
 class SignUp extends StatelessWidget {
   SignUp({super.key});
 
-  TextEditingController nameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController hobbyController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController hobbyController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +84,6 @@ class SignUp extends StatelessWidget {
               titleButton: 'Get Started',
               margin: const EdgeInsets.only(top: 20),
               onPressed: () {
-                 print (passwordController.text);
                 context.read<AuthCubit>().signUp(
                     email: emailController.text,
                     password: passwordController.text,
